@@ -1,0 +1,80 @@
+package com.union_test.toutiao.activity;
+
+import android.content.Intent;
+import android.support.annotation.IdRes;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+
+import com.union_test.toutiao.R;
+
+public class SplashMainActivity extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_splash_main);
+        Button button = (Button) findViewById(R.id.btn_splash_back);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+        bindButton(R.id.btn_mian_splash, CSJSplashActivity.class);
+        bindButton(R.id.btn_half_size_splash, CSJSplashActivity.class);
+        bindButton(R.id.btn_splash_click_eye, CSJSplashActivity.class);
+        bindButton(R.id.express_splash_ad, CSJSplashActivity.class);
+        bindButton(R.id.horizontal_express_splash_ad, HorizontalSplashActivity.class);
+        bindButton(R.id.horizontal_splash_ad, HorizontalSplashActivity.class);
+    }
+
+    private void bindButton(@IdRes int id, final Class clz) {
+        findViewById(id).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(SplashMainActivity.this, clz);
+                //开屏代码位id
+                if (v.getId() == R.id.btn_mian_splash) {
+                    intent.putExtra("splash_rit", "801121648");
+                    intent.putExtra("is_express", false);
+                    intent.putExtra("is_half_size", false);
+                }
+
+                //半全屏开屏代码位id
+                if (v.getId() == R.id.btn_half_size_splash) {
+                    intent.putExtra("splash_rit", "801121648");
+                    intent.putExtra("is_express", false);
+                    intent.putExtra("is_half_size", true);
+                }
+
+                //半全屏开屏代码位id
+                if (v.getId() == R.id.btn_splash_click_eye) {
+                    intent.putExtra("splash_rit", "801121648");
+                    intent.putExtra("is_express", false);
+                    intent.putExtra("is_splash_click_eye", true);
+                }
+                //开屏模板代码位id
+                if (v.getId() == R.id.express_splash_ad) {
+                    intent.putExtra("splash_rit", "801121974");
+                    intent.putExtra("is_express", true);
+                }
+
+                //横版模版开屏代码位id
+                if (v.getId() == R.id.horizontal_express_splash_ad) {
+                    intent.putExtra("splash_rit", "887631026");
+                    intent.putExtra("is_express", true);
+                }
+
+                //横版开屏代码位id
+                if (v.getId() == R.id.horizontal_splash_ad) {
+                    intent.putExtra("splash_rit", "887654027");
+                    intent.putExtra("is_express", false);
+                }
+
+                startActivity(intent);
+            }
+        });
+    }
+}

@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="HardcodedText"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Button
+        android:id="@+id/btn_MOP_back"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/title"
+        android:text="Back"
+        android:textAllCaps="false"
+        android:gravity="left|center_vertical"
+        android:drawablePadding="2dp"
+        android:paddingLeft="13dp"
+        android:drawableLeft="@drawable/arror_foreground"
+        android:textColor="@color/white"
+        android:textSize="15sp"/>
+
+    <LinearLayout
+        android:id="@+id/express_width_layout"
+        style="@style/InputBoxStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/express_width"
+            style="@style/EditTextStyle"
+            android:layout_width="match_parent"
+            android:layout_height="38dp"
+            android:hint="输入期望广告view的宽"
+            android:inputType="number"
+            android:textColorHint="#CFCFCF" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/express_height_layout"
+        style="@style/InputBoxStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/express_width_layout"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/express_height"
+            style="@style/EditTextStyle"
+            android:layout_width="match_parent"
+            android:layout_height="38dp"
+            android:hint="输入期望广告view的宽"
+            android:inputType="number"
+            android:textColorHint="#CFCFCF" />
+    </LinearLayout>
+
+
+    <Button
+        android:id="@+id/btn_express_load"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:layout_below="@+id/express_height_layout"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:gravity="center"
+        android:text="加载图文广告"
+        android:textColor="@color/tt_trans_half_black"
+        android:textSize="14sp"
+        android:theme="@style/PrimaryButton" />
+
+    <Button
+        android:id="@+id/btn_express_load_video"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:layout_below="@+id/btn_express_load"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:gravity="center"
+        android:text="加载视频广告"
+        android:textColor="@color/tt_trans_half_black"
+        android:textSize="14sp"
+        android:theme="@style/PrimaryButton" />
+
+    <com.mopub.mobileads.MoPubView
+            android:id="@+id/adview"
+        android:layout_below="@+id/btn_express_load"
+        android:layout_centerHorizontal="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            >
+        </com.mopub.mobileads.MoPubView>
+</RelativeLayout>
